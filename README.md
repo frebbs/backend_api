@@ -40,10 +40,22 @@ npm install
 
 ### Step 4: Run the Node.js Server
 
-Run your server using the following command:
+#### Development Mode
+
+To run the server in development mode, use the following command:
 
 ```bash
-node app.js
+npm run start:dev
+```
+
+This will start the server using `nodemon`, which will automatically restart the server whenever you make changes to the code.
+
+#### Production Mode
+
+To run the server in production mode, use the following command:
+
+```bash
+npm run start:prod
 ```
 
 You should see the message `Server running on http://localhost:3000/` in your terminal.
@@ -70,9 +82,9 @@ The `docker-compose.yml` file contains configurations for the following services
 
 - **Image**: `postgres:13`
 - **Environment Variables**:
-  - `POSTGRES_USER`: `myuser`
-  - `POSTGRES_PASSWORD`: `mypassword`
-  - `POSTGRES_DB`: `mydatabase`
+    - `POSTGRES_USER`: `postgres`
+    - `POSTGRES_PASSWORD`: `postgres`
+    - `POSTGRES_DB`: `app`
 - **Ports**: `5432:5432`
 - **Volumes**: `postgres_data:/var/lib/postgresql/data`
 
@@ -92,4 +104,3 @@ The following named volumes are defined to persist data:
 
 - `postgres_data`: For PostgreSQL data
 - `redis_data`: For Redis data
- to copy this updated content into your project's `README.md` file. This will help anyone who wants to set up your project to understand the steps they need to follow.
