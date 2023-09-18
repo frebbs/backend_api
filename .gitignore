@@ -1,0 +1,31 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# Docker Compose override files and environment variables
+docker-compose.override.yml
+.env
+
+# Docker Volumes
+*.db
+
+# IDE - Visual Studio Code
+.vscode/
+.idea/
+
+# Operating System
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Temp files
+*.tmp
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Other
+dist/
+build/
