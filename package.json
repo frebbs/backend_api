@@ -5,6 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "script:tree": "tree -a -I 'node_modules|.idea|.git|.vscode'",
     "start:prod": "node app.js",
     "start:dev": "nodemon app.js",
     "start:devDocker": "docker-compose -f docker-compose-local.yml up"
@@ -16,6 +17,8 @@
     "bcrypt": "^5.1.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
     "pg": "^8.11.3",
     "redis": "^4.6.8"
   },
