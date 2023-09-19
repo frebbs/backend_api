@@ -6,13 +6,18 @@
   "type": "module",
   "scripts": {
     "start:prod": "node app.js",
-    "start:dev": "nodemon app.js"
+    "start:dev": "nodemon app.js",
+    "start:devDocker": "docker-compose -f docker-compose-local.yml up"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "redis": "^4.6.8"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

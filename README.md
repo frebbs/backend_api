@@ -1,6 +1,6 @@
 # Node.js App with PostgreSQL, Redis, and a Basic Server
 
-This project sets up a development environment for a Node.js application using Docker Compose. The `docker-compose.yml` file defines services for PostgreSQL and Redis databases, and the application includes a basic JSON request-response server.
+This project sets up a development environment for a Node.js application using Docker Compose. The `docker-compose-local.yml` file defines services for PostgreSQL and Redis databases. The application includes a basic JSON request-response server.
 
 ## Prerequisites
 
@@ -15,17 +15,12 @@ This project sets up a development environment for a Node.js application using D
 
 If you haven't already, clone this repository to your local machine.
 
-```bash
-git clone https://github.com/your-username/my-nodejs-app.git
-cd my-nodejs-app
-```
-
 ### Step 2: Start the Database Containers
 
-Navigate to the project directory where the `docker-compose.yml` file is located and run:
+Navigate to the project directory where the `docker-compose-local.yml` file is located and run:
 
 ```bash
-docker-compose up -d
+docker-compose -f docker-compose-local.yml up -d
 ```
 
 This will start the PostgreSQL and Redis containers in detached mode.
@@ -58,33 +53,33 @@ To run the server in production mode, use the following command:
 npm run start:prod
 ```
 
-You should see the message `Server running on http://localhost:3000/` in your terminal.
+You should see the message `Server running on http://localhost:8080/` in your terminal.
 
 ### Step 5: Verify the Containers and Server Are Running
 
 To verify that the containers are running, execute:
 
 ```bash
-docker-compose ps
+docker-compose -f docker-compose-local.yml ps
 ```
 
-You should see both the PostgreSQL and Redis containers listed.
+You should see the PostgreSQL and Redis containers listed.
 
-To test the server, navigate to `http://localhost:3000/` in your web browser. You should receive a JSON response with the message `Hello, world!`.
+To test the server, navigate to `http://localhost:8080/` in your web browser. You should receive a JSON response with the message `Hello, world!`.
 
 ## Configuration
 
 ### Docker Compose
 
-The `docker-compose.yml` file contains configurations for the following services:
+The `docker-compose-local.yml` file contains configurations for the following services:
 
 #### PostgreSQL
 
 - **Image**: `postgres:13`
 - **Environment Variables**:
-    - `POSTGRES_USER`: `postgres`
-    - `POSTGRES_PASSWORD`: `postgres`
-    - `POSTGRES_DB`: `app`
+  - `POSTGRES_USER`: `postgres`
+  - `POSTGRES_PASSWORD`: `postgres`
+  - `POSTGRES_DB`: `app`
 - **Ports**: `5432:5432`
 - **Volumes**: `postgres_data:/var/lib/postgresql/data`
 
@@ -96,7 +91,11 @@ The `docker-compose.yml` file contains configurations for the following services
 
 ### Node.js Server
 
-The server is set up using Express and listens on port 3000. It includes a basic GET route that responds with a JSON object.
+The server is set up using Express and listens on port 8080. It includes a basic GET route that responds with a JSON object.
+
+### Redis Connection in Node.js
+
+The Node.js application connects to a Redis server running on `localhost:6379`. The connection is managed using the `node-redis` package.
 
 ## Volumes
 
