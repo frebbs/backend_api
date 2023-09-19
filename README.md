@@ -29,6 +29,29 @@ This project sets up a development environment for a Node.js application using D
 - [Database Configuration (`config/db.js`)](#database-configuration-configdbjs)
 - [Passport Configuration (`config/passport-config.js`)](#passport-configuration-configpassport-configjs)
 
+## Directory Structure
+```
+.
+├── app.js # Entry point, sets up server and routes
+├── config
+│   ├── db.js # Database setup and initialization
+│   └── passport-config.js # Passport.js and JWT configuration
+├── controllers
+│   └── userController.js # User-related route logic
+├── docker-compose-local.yml # Local Docker Compose configuration
+├── Dockerfile # Docker image configuration
+├── package.json # Project manifest and dependencies
+├── package-lock.json # Dependency version lock
+├── README.md # Project documentation
+├── routes
+│   ├── rootRoutes.js # Root-level routes
+│   └── userRoutes.js # User-related routes
+└── utils
+└── db_utils.js # Database utility functions
+
+```
+
+
 ## Prerequisites
 
 - Docker
