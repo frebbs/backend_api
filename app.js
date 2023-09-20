@@ -5,10 +5,10 @@ import passport from 'passport';
 import './config/passport-config.js';
 
 const app = express();
-const PORT = 8080;
+const PORT = 10000;
 
 const client = createClient({
-    url: 'redis://localhost:6379'
+    url: 'redis://redis:6379'
 });
 client.connect();
 

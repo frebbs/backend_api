@@ -4,7 +4,7 @@ const { Pool } = pkg;
 
 let pool = new Pool({
     user: 'postgres',
-    host: 'localhost',
+    host: 'postgres',
     database: 'app',
     password: 'postgres',
     port: 5432,
@@ -24,7 +24,7 @@ const initializeDb = async () => {
 
         pool = await new Pool({
             user: 'postgres',
-            host: 'localhost',
+            host: 'postgres',
             database: 'app',
             password: 'postgres',
             port: 5432,

@@ -1,6 +1,20 @@
 version: '3.8'
 
 services:
+  api-backend:
+    build: ../
+    container_name: api-backend
+    ports:
+      - "10000:10000"
+    volumes:
+      - ../:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+    depends_on:
+      - postgres
+      - redis
+    external_links:
+      - postgres
+      - redis
   postgres:
     image: postgres:13
     environment:
@@ -20,3 +34,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  node_modules:

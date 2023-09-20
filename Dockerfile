@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the current directory contents into the container
-COPY . .
+COPY docker_local .
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
